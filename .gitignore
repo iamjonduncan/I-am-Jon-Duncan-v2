@@ -4,6 +4,9 @@ Stills
 .claude
 
 # Original source images — WebP variants are used in production
+img/**/*.jpg
+img/**/*.png
+img/**/*.jpeg
 img/*.jpg
 img/*.png
 img/*.jpeg
