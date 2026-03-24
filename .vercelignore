@@ -1,0 +1,13 @@
+node_modules
+Stills
+package-lock.json
+optimize-images.js
+update-html-images.js
+serve.js
+jonduncan-wireframe_5.html
+avec-sans.html
+
+# Original source images — WebP variants are used in production
+img/*.jpg
+img/*.png
+img/*.jpeg

@@ -1,0 +1,14 @@
+node_modules
+Stills
+.DS_Store
+.claude
+
+# Original source images — WebP variants are used in production
+img/*.jpg
+img/*.png
+img/*.jpeg
+
+# Dev scripts
+optimize-images.js
+update-html-images.js
+package-lock.json

@@ -1,0 +1,12 @@
+{
+  "name": "iamjonduncan-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "optimize-images": "node optimize-images.js",
+    "serve": "node serve.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

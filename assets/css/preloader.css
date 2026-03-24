@@ -1,0 +1,20 @@
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--green);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+#preloader.is-done {
+  transform: translateY(-100%);
+}
+.preloader-text {
+  font-family: 'StepsMono', 'ArtavionMono', 'Space Mono', monospace;
+  font-size: 10vw;
+  color: #0A0A0A;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
