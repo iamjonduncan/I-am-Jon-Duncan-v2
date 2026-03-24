@@ -409,7 +409,7 @@
   }
   .work-title {
     font-family: var(--headline);
-    font-size: clamp(92px, 11vw, 92px);
+    font-size: clamp(48px, 11vw, 92px);
     line-height: 1.2;
     color: #fff;
 }
