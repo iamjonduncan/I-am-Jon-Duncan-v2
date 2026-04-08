@@ -36,8 +36,8 @@
     height: 100%;
     pointer-events: none;
     z-index: 9999;
-    background: url('https://www.iamjonduncan.com/img/grain.webp');
-    opacity: 0.4;
+    background: url('../../img/grain.webp');
+    opacity: 0.15;
     animation: noise 0.2s steps(1) infinite;
     mix-blend-mode: hard-light;
   }
@@ -409,7 +409,7 @@
   }
   .work-title {
     font-family: var(--headline);
-    font-size: clamp(48px, 11vw, 92px);
+    font-size: clamp(48px, 11vw, 160px);
     line-height: 1.2;
     color: #fff;
 }
@@ -534,7 +534,7 @@
   /* CLIENTS STRIP */
   .clients-strip {
     padding: 64px 24px;
-    border-top: 1px solid var(--border);
+    
     background: #131232;
   }
   .clients-label {
@@ -589,7 +589,7 @@
   }
   .statement-headline {
     font-family: var(--headline);
-    font-size: clamp(48px, 11vw, 92px);
+    font-size: clamp(48px, 11vw, 160px);
     color: var(--off-white);
     line-height: 0.92;
 }
@@ -656,7 +656,7 @@
   ───────────────────────────────────── */
   .page-header {
     padding: 64px 24px 40px;
-    border-bottom: 1px solid var(--border);
+    
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: end;
@@ -719,7 +719,7 @@
   }
   .about-content-col {
     padding: 64px 48px;
-    border-left: 1px solid var(--border);
+    
   }
   .about-name {
     font-family: var(--headline);
@@ -735,7 +735,7 @@
     color: var(--meta);
     margin-bottom: 48px;
     padding-bottom: 48px;
-    border-bottom: 1px solid var(--border);
+    
   }
   .about-body {
     font-size: 15px;
@@ -750,8 +750,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     padding: 40px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    
+    
     margin-bottom: 48px;
   }
   .stat-num {
@@ -779,7 +779,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 6px 12px;
-    border: 1px solid var(--border);
+    
     color: var(--meta);
   }
 
@@ -799,8 +799,8 @@
   }
   .service-card {
     padding: 48px 32px;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    
+    
     position: relative;
     overflow: hidden;
     transition: background 0.3s;
@@ -836,7 +836,7 @@
     bottom: 24px; right: 24px;
     font-family: var(--mono);
     font-size: 18px;
-    color: var(--border);
+    
     transition: all 0.3s;
   }
   .service-card:hover .service-arrow {
@@ -855,7 +855,7 @@
     grid-template-columns: 60px 1fr auto;
     align-items: center;
     padding: 32px 0;
-    border-bottom: 1px solid var(--border);
+    
     gap: 32px;
     cursor: pointer;
     transition: background 0.2s;
@@ -880,7 +880,7 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     padding: 6px 14px;
-    border: 1px solid var(--border);
+    
     color: var(--meta);
   }
   .script-badge.live {
@@ -910,7 +910,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid var(--border);
+    
   }
 
   /* ─────────────────────────────────────
@@ -936,7 +936,7 @@
   .contact-info {
     margin-top: 48px;
     padding-top: 48px;
-    border-top: 1px solid var(--border);
+    
   }
   .contact-info-item {
     display: flex;
@@ -1283,7 +1283,7 @@
   }
   .detail-rule {
     border: none;
-    border-top: 1px solid var(--border);
+    
     margin-bottom: 20px;
   }
   .detail-body {
@@ -1294,7 +1294,7 @@
   }
   .detail-body p { margin-bottom: 12px; }
   .detail-credits {
-    border-top: 1px solid var(--border);
+    
     padding-top: 16px;
     margin-bottom: 4px;
   }
@@ -1394,7 +1394,7 @@
   }
 
   /* CLIENT TIERS */
-  .clients-strip { padding: 64px 24px; border-top: 1px solid var(--border); background: #131232; position: relative; overflow: hidden; }
+  .clients-strip { padding: 64px 24px;  background: #131232; position: relative; overflow: hidden; }
   .clients-invert-lens {
     position: absolute;
     left: 0;
@@ -1533,8 +1533,8 @@
     top: 90px;
   }
   .project-facts {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    
+    
     padding: 14px 0;
     margin-bottom: 22px;
   }

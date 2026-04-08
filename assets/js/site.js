@@ -1,10 +1,115 @@
 // Preloader
-window.addEventListener('load', () => {
+(function () {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
-  preloader.classList.add('is-done');
-  preloader.addEventListener('transitionend', () => preloader.remove(), { once: true });
-});
+
+  const text = preloader.querySelector('.preloader-text');
+  const loadStart = performance.now();
+  const sleep = ms => new Promise(r => setTimeout(r, ms * speed));
+  const variants = ['a', 'd'];
+  let speed = 1;
+  const chosen = variants[Math.floor(Math.random() * variants.length)];
+  preloader.classList.add('variant-' + chosen);
+
+  function removePreloader() {
+    preloader.style.transition = 'none';
+    preloader.style.opacity = '0';
+    setTimeout(() => preloader.remove(), 100);
+  }
+
+  // ── VARIANT A: VHS Boot ──
+  async function runA() {
+    text.style.opacity = '0';
+    const lines = [
+      { label: 'SYS', text: 'BOOT SEQUENCE INITIATED' },
+      { label: 'VID', text: 'VIDEO DRIVER................' },
+      { label: 'AUD', text: 'AUDIO SUBSYSTEM.............' },
+      { label: 'NET', text: 'NETWORK INTERFACE...........' },
+      { label: 'MEM', text: 'ALLOCATING MEMORY...........' },
+      { label: 'AST', text: 'LOADING ASSETS..............' },
+      { label: 'RDR', text: 'RENDERER READY..............' },
+    ];
+    const container = document.createElement('div');
+    container.className = 'preloader-boot-lines';
+    preloader.insertBefore(container, text);
+
+    for (const line of lines) {
+      const el = document.createElement('div');
+      el.className = 'preloader-boot-line';
+      el.innerHTML = `<span class="bl-label">[${line.label}]</span><span>${line.text}</span><span class="bl-ok">OK</span>`;
+      container.appendChild(el);
+      el.style.opacity = '1';
+      await sleep(110);
+    }
+
+    await sleep(150);
+    text.textContent = 'I AM JON\nDUNCAN';
+    text.innerHTML = 'I AM JON<br>DUNCAN<span class="preloader-cursor"></span>';
+    text.style.opacity = '1';
+    await sleep(1000);
+
+    // Flicker then hard cut
+    for (let i = 0; i < 3; i++) {
+      preloader.style.opacity = '0';
+      await sleep(40);
+      preloader.style.opacity = '1';
+      await sleep(60);
+    }
+    removePreloader();
+  }
+
+  // ── VARIANT D: Glitch Cut ──
+  async function runD() {
+    const originalText = '1 SEC...';
+    text.setAttribute('data-text', originalText);
+    await sleep(800);
+
+    // Text corruption
+    const chars = '!@#$%^&*<>?/\\|[]{}01';
+    const corruptInterval = setInterval(() => {
+      const corrupted = originalText.split('').map(c =>
+        c === ' ' ? ' ' : (Math.random() < 0.6 ? chars[Math.floor(Math.random() * chars.length)] : c)
+      ).join('');
+      text.textContent = corrupted;
+      text.setAttribute('data-text', corrupted);
+    }, 60);
+    await sleep(300);
+    clearInterval(corruptInterval);
+
+    text.textContent = originalText;
+    text.setAttribute('data-text', originalText);
+    text.classList.add('glitching');
+    await sleep(400);
+
+    // Screen tears
+    const tears = [];
+    for (let i = 0; i < 6; i++) {
+      const tear = document.createElement('div');
+      tear.className = 'pl-tear';
+      const h = Math.floor(Math.random() * 80) + 20;
+      const y = Math.floor(Math.random() * (window.innerHeight - h));
+      tear.style.cssText = `top:${y}px;height:${h}px;transform:translateX(${(Math.random()-0.5)*80}px)`;
+      document.body.appendChild(tear);
+      tears.push(tear);
+    }
+    await sleep(80);
+
+    // Flash then hard cut
+    preloader.style.background = '#fff';
+    await sleep(40);
+    preloader.style.background = '#00FF41';
+    await sleep(40);
+    tears.forEach(t => t.remove());
+    text.classList.remove('glitching');
+    removePreloader();
+  }
+
+  window.addEventListener('load', () => {
+    speed = (performance.now() - loadStart) < 1000 ? 0.5 : 1;
+    if (chosen === 'a') runA();
+    else runD();
+  });
+})();
 
 // Hamburger nav
 const hamburger = document.querySelector('.nav-hamburger');
